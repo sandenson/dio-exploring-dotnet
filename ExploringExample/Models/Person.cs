@@ -3,7 +3,7 @@ namespace ExploringExample.Models
     public class Person
     {
         public Person(string name, string surname, int age) {
-            _name = Name;
+            _name = name;
             Surname = surname;
             Age = age;
         }

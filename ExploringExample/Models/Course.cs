@@ -26,9 +26,10 @@ namespace ExploringExample.Models
         public void ListStudents()
         {
             Console.WriteLine($"Students enrolled in the course: {Name}");
-            foreach (var student in Students)
+            
+            for (int i = 0; i < Students.Count; i++)
             {
-                student.Present();
+                Console.WriteLine($"#{i + 1} - {Students[i].FullName}");
             }
         }
     }
