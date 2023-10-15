@@ -8,10 +8,28 @@ namespace ExploringExample.Models
             Age = age;
         }
 
+        public Person(string name, string surname) {
+            _name = name;
+            Surname = surname;
+        }
+
         public Person() {
             _name = "Diego";
             Surname = "Fernandes";
             Age = 27;
+        }
+
+        public void Deconstruct(out string name, out string surname)
+        {
+            name = Name;
+            surname = Surname;
+        }
+
+        public void Deconstruct(out string name, out string surname, out int age)
+        {
+            name = Name;
+            surname = Surname;
+            age = Age;
         }
 
         private string _name;

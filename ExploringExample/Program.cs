@@ -13,6 +13,8 @@
 // // #2 - ROBERTIÑO BAÊA
 // // #3 - DIEGO FERNANDES
 
+// ---------------------------------------------------------
+
 // using System.Globalization;
 
 // decimal value = 82.40M;
@@ -43,6 +45,8 @@
 // Console.WriteLine(.3421D.ToString("P2")); // 34,21%
 
 // Console.WriteLine(123456.ToString("##-##-##")); // 12-34-56
+
+// ---------------------------------------------------------
 
 // using System.Globalization;
 
@@ -79,6 +83,8 @@
 
 // DateExactTryParser("2023-10-14 22:25"); // 10/14/2023 22:25:00
 
+// ---------------------------------------------------------
+
 // using ExploringExample.Utils;
 
 // try
@@ -114,6 +120,8 @@
 //     Console.WriteLine("This is ran after everything else.");
 // }
 
+// ---------------------------------------------------------
+
 // using ExploringExample.Models;
 
 // ExceptionExample.Method1();
@@ -123,6 +131,8 @@
 // //    at ExploringExample.Models.ExceptionExample.Method2() in /random_path/exploring-csharp/ExploringExample/Models/ExceptionExample.cs:line 17
 // //    at ExploringExample.Models.ExceptionExample.Method1() in /random_path/exploring-csharp/ExploringExample/Models/ExceptionExample.cs:line 12
 // //    at Program.<Main>$(String[] args) in /random_path/exploring-csharp/ExploringExample/Program.cs:line 119
+
+// ---------------------------------------------------------
 
 // Queue<int> queue = new();
 // queue.Enqueue(2);
@@ -146,6 +156,8 @@
 
 // Console.WriteLine($"{new Queue<int>().TryDequeue(out int test)} - {test}"); // False - 0
 
+// ---------------------------------------------------------
+
 // Stack<int> stack = new();
 // stack.Push(2);
 // stack.Push(4);
@@ -167,6 +179,8 @@
 // }
 
 // Console.WriteLine($"{new Stack<int>().TryPop(out int test)} - {test}"); // False - 0
+
+// ---------------------------------------------------------
 
 // Dictionary<string, string> states = new()
 // {
@@ -211,3 +225,91 @@
 
 // // Console.WriteLine(states["RS"]); // throws exception
 // Console.WriteLine(states["AL"]); // Alagoas
+
+// ---------------------------------------------------------
+
+// (int, string, string, decimal) tuple = (2002, "Luiz", "Sandes", 1.70M);
+// (int Id, string Name, string Surname, decimal Height) tuple2 = (1971, "Luiz", "Sandes", 1.70M);
+// (int Id, string Name, string Surname, decimal Height) = (1985, "Lewis", "Hamilton", 1.74M);
+// ValueTuple<int, string, string, decimal> tuple3 = (1832, "Lewis", "Carroll", 1.80M);
+// var tuple4 = Tuple.Create(1899, "Louis", "Chiron", 1.75M); // unknown height
+
+// Console.WriteLine($"Id: {tuple.Item1}");
+// Console.WriteLine($"Name: {tuple.Item2}");
+// Console.WriteLine($"Surname: {tuple.Item3}");
+// Console.WriteLine($"Height: {tuple.Item4}");
+
+// Console.WriteLine("--------------");
+
+// Console.WriteLine($"Id: {tuple2.Id}");
+// Console.WriteLine($"Name: {tuple2.Name}");
+// Console.WriteLine($"Surname: {tuple2.Surname}");
+// Console.WriteLine($"Height: {tuple2.Height}");
+
+// Console.WriteLine("--------------");
+
+// Console.WriteLine($"Id: {Id}");
+// Console.WriteLine($"Name: {Name}");
+// Console.WriteLine($"Surname: {Surname}");
+// Console.WriteLine($"Height: {Height}");
+
+// Console.WriteLine("--------------");
+
+// Console.WriteLine($"Id: {tuple3.Item1}");
+// Console.WriteLine($"Name: {tuple3.Item2}");
+// Console.WriteLine($"Surname: {tuple3.Item3}");
+// Console.WriteLine($"Height: {tuple3.Item4}");
+
+// Console.WriteLine("--------------");
+
+// Console.WriteLine($"Id: {tuple4.Item1}");
+// Console.WriteLine($"Name: {tuple4.Item2}");
+// Console.WriteLine($"Surname: {tuple4.Item3}");
+// Console.WriteLine($"Height: {tuple4.Item4}");
+
+// ---------------------------------------------------------
+
+// using ExploringExample.Models;
+// using ExploringExample.Utils;
+
+// // var (success, fileLines, lineCount) = FileReading.ReadFile(Path.Join(Utils.CurrentWorkingDirectory, "Files/file.txt"));
+// var (_, fileLines, _) = FileReading.ReadFile(Path.Join(Utils.CurrentWorkingDirectory, "Files/file.txt")); // discarding values
+
+// if (fileLines.Any()) {
+//     Console.WriteLine($"File line count: {fileLines.Length}"); // File line count: 2
+
+//     foreach (var line in fileLines)
+//     {
+//         Console.WriteLine(line);
+//         // Line one of the file
+//         // Line two of the file - Random content
+//     }
+// }
+// else
+// {
+//     Console.WriteLine("Failed to read file.");
+// }
+
+// ---------------------------------------------------------
+
+// using ExploringExample.Models;
+
+// Person p1 = new("Name", "Surname");
+// (string name, string surname) = p1; // deconstruction
+// (string name, string surname, int age) = p1; // deconstruction
+// p1.Deconstruct(out string name, out string surname); // "deconstruction"
+
+// ---------------------------------------------------------
+
+int number = 20;
+
+if (number % 2 == 0) // traditional if
+{
+    Console.WriteLine($"The number {number} is even"); // The number 20 is even
+}
+else
+{
+    Console.WriteLine($"The number {number} is odd");
+}
+
+Console.WriteLine($"The number {number} is {(number % 2 == 0 ? "even" : "odd")}"); // The number 20 is even
