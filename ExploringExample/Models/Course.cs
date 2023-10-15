@@ -2,6 +2,17 @@ namespace ExploringExample.Models
 {
     public class Course
     {
+        public Course(string name)
+        {
+            Name = name;
+        }
+
+        public Course(string name, List<Person> students)
+        {
+            Name = name;
+            Students = students;
+        }
+
         public string Name { get; set; }
         public readonly List<Person> Students = new();
 

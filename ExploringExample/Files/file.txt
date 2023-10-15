@@ -1,0 +1,2 @@
+Line one of the file
+Line two of the file - Random content
