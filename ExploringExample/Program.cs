@@ -301,15 +301,76 @@
 
 // ---------------------------------------------------------
 
-int number = 20;
+// int number = 20;
 
-if (number % 2 == 0) // traditional if
-{
-    Console.WriteLine($"The number {number} is even"); // The number 20 is even
-}
-else
-{
-    Console.WriteLine($"The number {number} is odd");
-}
+// if (number % 2 == 0) // traditional if
+// {
+//     Console.WriteLine($"The number {number} is even"); // The number 20 is even
+// }
+// else
+// {
+//     Console.WriteLine($"The number {number} is odd");
+// }
 
-Console.WriteLine($"The number {number} is {(number % 2 == 0 ? "even" : "odd")}"); // The number 20 is even
+// Console.WriteLine($"The number {number} is {(number % 2 == 0 ? "even" : "odd")}"); // The number 20 is even
+
+// ---------------------------------------------------------
+
+// using ExploringExample.Models;
+// using ExploringExample.Utils;
+// using Newtonsoft.Json;
+
+// var now = DateTime.Now;
+
+// Sale sale = new(1, "Office supplies", 25.00M, now);
+
+// string serialized = JsonConvert.SerializeObject(sale);
+
+// string salePath = Path.Join(Utils.CurrentWorkingDirectory, "Files/sale.json");
+
+// Console.WriteLine(serialized); // {"Id":1,"Product":"Office supplies","Price":25.00}
+
+// File.WriteAllText(salePath, serialized);
+
+// Console.WriteLine(
+//     JsonConvert.DeserializeObject<Sale>(
+//         File.ReadAllText(salePath)
+//     )?.Product
+// ); // Office supplies
+
+// List<Sale> sales = new(){
+//     sale,
+//     new(2, "Software license", 110.00M, now.AddMonths(-1)),
+//     new(3, "808 HP Hennessey Heritage Edition Mustang", 89950.00M, now.AddMonths(-1).AddYears(-1)),
+// };
+
+// string serializedList = JsonConvert.SerializeObject(sales);
+
+// Console.WriteLine(serializedList); // [{"Id":1,"Product":"Office supplies","Price":25.00},{"Id":2,"Product":"Software license","Price":110.00},{"Id":3,"Product":"808 HP Hennessey Heritage Edition Mustang","Price":89950.00}]
+
+// string salesPath = Path.Join(Utils.CurrentWorkingDirectory, "Files/sales.json");
+
+// File.WriteAllText(salesPath, serializedList);
+
+// Console.WriteLine(
+//     JsonConvert.DeserializeObject<List<Sale>>(
+//         File.ReadAllText(salesPath)
+//     )?[2].Product
+// ); // 808 HP Hennessey Heritage Edition Mustang
+
+// ---------------------------------------------------------
+
+using ExploringExample.Models;
+using ExploringExample.Utils;
+using Newtonsoft.Json;
+
+var sales = JsonConvert.DeserializeObject<List<Sale>>(
+    File.ReadAllText(Path.Join(Utils.CurrentWorkingDirectory, "Files/sales.json"))
+);
+
+foreach (var sale in sales)
+{
+    Console.WriteLine(
+        $"Id: {sale.Id}, Product: {sale.Product}, Price: {sale.Price}, Date: {sale.Date.ToString("dd/MM/yyyy HH:mm")}"
+    );
+}
