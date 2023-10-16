@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OOPExample.Models
 {
-    public class CheckingAccount
+    public class CheckingAccount : BankAccount
     {
         public CheckingAccount(int accountNumber, decimal balance)
         {
@@ -13,25 +13,9 @@ namespace OOPExample.Models
             this.balance = balance;
         }
 
-        public int AccountNumber { get; set; }
-        private decimal balance;
-
-        public void Withdraw(decimal value)
+        public override void Deposit(decimal value)
         {
-            if (balance >= value)
-            {
-                balance -= value;
-                Console.WriteLine("Withdrawal successful.");
-            }
-            else
-            {
-                Console.WriteLine("Not enough balance.");
-            }
-        }
-
-        public void DisplayBalance()
-        {
-            Console.WriteLine($"Your current balance: {balance}");
+            balance += value;
         }
     }
 }

@@ -1,7 +1,16 @@
 namespace OOPExample.Models
 {
-    public class Student : Person
+    public sealed class Student : Person
     {
+        public Student(string name, int age) : base(name)
+        {
+            Age = age;
+        }
+
+        public Student(string name) : base(name)
+        {
+        }
+
         public double Grade { get; set; }
 
         public override void IntroduceSelf()
