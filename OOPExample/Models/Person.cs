@@ -5,7 +5,7 @@ namespace OOPExample.Models
         public string Name { get; set; }
         public int Age { get; set; }
 
-        public void IntroduceSelf()
+        public virtual void IntroduceSelf()
         {
             Console.WriteLine($"Hello, my name is {Name} and I'm {Age} years old!");
         }
